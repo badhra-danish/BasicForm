@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form action="" id="form">
+                <div class="heading">
+                    <p>Registration Form</p>
+                </div>
+               <div class="form-group">
+                <div class="form-items">
+                  <div class="form-input">
+                    <label>Firts Name<span style="color: red;">*</span></label>
+                    <input type="text" name="first_name" id="first-name" placeholder="First Name">
+                    <div id="firstnameError" class="error"></div>
+                  </div>
+
+                    <div class="form-input">
+                    <label>Middle Name<span style="color: red;">*</span></label>
+                    <input type="text" name="middle_name" id="middle-name" placeholder="Middle Name"> 
+                    <div id="middlenameError" class="error"></div>
+                    </div>  
+                    <div class="form-input">
+                    <label>Last Name<span style="color: red;">*</span></label>
+                    <input type="text" name="last_name" id="last-name" placeholder="Last Name">
+                    <div id="lastnameError" class="error"></div>
+                    </div>
+                    <div class="form-input">
+                    <label>Email<span style="color: red;">*</span></label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <div id="emailError" class="error"></div>
+                    </div>
+                    <div class="form-input">
+                    <label>Conatact<span style="color: red;">*</span></label>
+                    <input type="number" numbermode="numeric" name="contact" id="contact" placeholder="Contact No">
+                    <div id="contactError" class="error"></div>
+                    </div>
+                    <div class="form-input">
+                    <label>Date of Birth<span style="color: red;">*</span></label>
+                    <input type="date" name="dob" id="dob">
+                    </div>
+                    <div class="form-input">
+                    <label>Pin Code<span style="color: red;">*</span></label>
+                    <input type="number" name="pin" id="pin" placeholder="Pin Code">
+                    <div id="pinError" class="error"></div>
+                    </div>
+                    <div class="form-input">
+                        <label>Pin Code</label>
+                        <input type="number" name="pin" id="pin" placeholder="Pin Code">
+                        <div id="pinError" class="error"></div>    
+                    </div>
+                </div> 
+                   <label>Address<span style="color: red;">*</span></label>
+                    <textarea name="address" id="address" cols="30" rows="6" placeholder="Address"></textarea>
+                    <div id="addressError" class="error"></div>
+                <div class="submit-btns">
+                    <input type="submit" value="Submit">
+                </div>     
+            </div>        
+                <div class="loader"></div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
