@@ -63,9 +63,8 @@ form .heading p{
     font-size: 1.2rem;
     background-color:rgb(230, 230, 248) ;
     outline: none;
-    border-radius: 5px;
-    border: none;
-    
+   border: none;
+   border-radius: 5px;
     width: 100%;
 }
 .form-group textarea{
@@ -114,6 +113,9 @@ form .heading p{
     font-size: 1rem;
 
 }
+.error-msg{
+    border: solid 2px red;
+}   
 .loader {
     display: none;
     width: 30px;

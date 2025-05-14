@@ -11,7 +11,7 @@ const loader = document.querySelector('.loader');
 
 const formValidation = (event) => {
     event.preventDefault();
-    const firstName = document.getElementById('first-name').value; 
+    const firstName = document.getElementById('first-name').value
     const middleName = document.getElementById('middle-name').value;
     const lastName = document.getElementById('last-name').value;
     const email = document.getElementById('email').value;  
@@ -27,8 +27,10 @@ const formValidation = (event) => {
     pinCodeError.textContent = '';
     addressError.textContent = '';
     classError.textContent = '';
+    
     if (firstName === '') {
         firstNameError.textContent = 'First name is required';
+       
     } else if (firstName.length < 5) {
         firstNameError.textContent = 'First name must be at least 5 characters';
     }
