@@ -41,13 +41,14 @@ form .heading p{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 1rem;
     margin-top: 2rem;
 }
 .form-items .form-input{
     width: 48%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    
     margin-bottom: 1rem;
 }
 .form-items .form-input label{
@@ -80,6 +81,8 @@ form .heading p{
 }
 .form-group label{
     font-size: 1.2rem;
+    color: rgb(87, 87, 241);
+    font-weight: 600    ;
 }
 .submit-btns{
     margin-top: 2rem;

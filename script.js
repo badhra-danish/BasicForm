@@ -5,6 +5,7 @@ const lastNameError = document.getElementById('lastnameError');
 const emailError = document.getElementById('emailError');
 const contactError = document.getElementById('contactError');
 const pinCodeError = document.getElementById('pinError');
+const classError = document.getElementById('classError');
 const addressError = document.getElementById('addressError');
 const loader = document.querySelector('.loader');
 
@@ -16,6 +17,7 @@ const formValidation = (event) => {
     const email = document.getElementById('email').value;  
     const contact = document.getElementById('contact').value;
     const pinCode = document.getElementById('pin').value;
+    const className = document.getElementById('class').value;
     const address = document.getElementById('address').value;
     firstNameError.textContent = '';
     lastNameError.textContent = '';
@@ -24,6 +26,7 @@ const formValidation = (event) => {
     contactError.textContent = '';
     pinCodeError.textContent = '';
     addressError.textContent = '';
+    classError.textContent = '';
     if (firstName === '') {
         firstNameError.textContent = 'First name is required';
     } else if (firstName.length < 5) {
@@ -62,6 +65,12 @@ const formValidation = (event) => {
     } else if (address.length < 10) {
         addressError.textContent = 'Address must be at least 10 characters';
     }
+    if (className === '') {
+        classError.textContent = 'Class is required';
+    } else if (className.length < 2) {
+        classError.textContent = 'Class must be at least 2 characters';
+    }  
+
     if (firstNameError.textContent === '' && lastNameError.textContent === '' && middleNameError.textContent === '' && emailError.textContent === '' && contactError.textContent === '' && pinCodeError.textContent === '' && addressError.textContent === '') {
         loader.style.display = 'block';         
         setTimeout(() => {
