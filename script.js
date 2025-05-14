@@ -7,6 +7,7 @@ const contactError = document.getElementById('contactError');
 const pinCodeError = document.getElementById('pinError');
 const classError = document.getElementById('classError');
 const addressError = document.getElementById('addressError');
+const dobError = document.getElementById('dobError');
 const loader = document.querySelector('.loader');
 
 const formValidation = (event) => {
@@ -16,6 +17,7 @@ const formValidation = (event) => {
     const lastName = document.getElementById('last-name').value;
     const email = document.getElementById('email').value;  
     const contact = document.getElementById('contact').value;
+    const dob = document.getElementById('dob').value;
     const pinCode = document.getElementById('pin').value;
     const className = document.getElementById('class').value;
     const address = document.getElementById('address').value;
@@ -24,6 +26,7 @@ const formValidation = (event) => {
     middleNameError.textContent = '';
     emailError.textContent = '';
     contactError.textContent = '';
+    dobError.textContent = '';
     pinCodeError.textContent = '';
     addressError.textContent = '';
     classError.textContent = '';
@@ -56,6 +59,17 @@ const formValidation = (event) => {
         contactError.textContent = 'Contact number is required';
     } else if (!/^\d{10}$/.test(contact)) {
         contactError.textContent = 'Contact number must be 10 digits';
+    }
+    if (dob === '') {
+        dobError.textContent = 'Date of birth is required';
+    } else {
+        const today = new Date();
+        const dobDate = new Date(dob);
+        const age = today.getFullYear() - dobDate.getFullYear();
+        const monthDiff = today.getMonth() - dobDate.getMonth();
+        if (age < 18) {
+            dobError.textContent = 'You must be at least 18 years old';
+        }
     }
     if (pinCode === '') {
         pinCodeError.textContent = 'Pin code is required';
