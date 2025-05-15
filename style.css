@@ -127,6 +127,43 @@ form .heading p{
     animation: spin 0.8s linear infinite;
     margin: 10px auto;
 }
+.popup-container{
+    display: none;
+    height: auto;
+    width: 40%;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+}
+.popup-container .icon{
+    display: flex;
+    justify-content: end;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #3498db;
+    cursor: pointer;
+}
+.popup-container .popupitems{
+    width: 100%;
+    font-size: 1.2rem;
+}
+.popupitems h2{
+  text-align: center;
+  margin:1rem;
+}
+.form-detail p{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem;
+  color: green;
+  font-weight: 600;
+  border-bottom: 1px solid black;
+}
+.form-detail p span{
+    color: black;
+    font-weight: 400;
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

@@ -9,9 +9,16 @@ const classError = document.getElementById('classError');
 const addressError = document.getElementById('addressError');
 const dobError = document.getElementById('dobError');
 const loader = document.querySelector('.loader');
+const formcontainer =document.querySelector('.container')
+const popupcontainer =document.querySelector('.popup-container')
+const closeIcon = document.querySelector('.icon')
+const formDetail = document.querySelector('.form-detail')
 
-const formValidation = (event) => {
-    event.preventDefault();
+// Form Data And Value Acsess ///
+
+
+
+const formValidation = () => {
     const firstName = document.getElementById('first-name').value
     const middleName = document.getElementById('middle-name').value;
     const lastName = document.getElementById('last-name').value;
@@ -21,6 +28,7 @@ const formValidation = (event) => {
     const pinCode = document.getElementById('pin').value;
     const className = document.getElementById('class').value;
     const address = document.getElementById('address').value;
+   
     firstNameError.textContent = '';
     lastNameError.textContent = '';
     middleNameError.textContent = '';
@@ -31,8 +39,8 @@ const formValidation = (event) => {
     addressError.textContent = '';
     classError.textContent = '';
     
-    if (firstName === '') {
-        firstNameError.textContent = 'First name is required';
+    /*if (firstName === '') {
+        firstNameError.innerHTML = 'First name is required';
        
     } else if (firstName.length < 5) {
         firstNameError.textContent = 'First name must be at least 5 characters';
@@ -85,13 +93,13 @@ const formValidation = (event) => {
         classError.textContent = 'Class is required';
     } else if (className.length < 2) {
         classError.textContent = 'Class must be at least 2 characters';
-    }  
+    }  */
 
     if (firstNameError.textContent === '' && lastNameError.textContent === '' && middleNameError.textContent === '' && emailError.textContent === '' && contactError.textContent === '' && pinCodeError.textContent === '' && addressError.textContent === '') {
         loader.style.display = 'block';         
         setTimeout(() => {
             loader.style.display = 'none';
-            alert('Form submitted successfully');
+            showPopup()
             form.reset();
         }, 2000);
         
@@ -99,4 +107,41 @@ const formValidation = (event) => {
     
     
 }
-form.addEventListener('submit', formValidation);
+form.addEventListener('submit' , (e) =>{
+    e.preventDefault()
+    
+
+   formValidation()
+   
+})
+
+const showPopup = () => {
+    formcontainer.style.display = "none"
+    popupcontainer.style.display = 'block'
+    const firstName = document.getElementById('first-name').value
+    const middleName = document.getElementById('middle-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;  
+    const contact = document.getElementById('contact').value;
+    const dob = document.getElementById('dob').value;
+    const pinCode = document.getElementById('pin').value;
+    const className = document.getElementById('class').value;
+    const address = document.getElementById('address').value;
+    const html = `
+                 <p>FirstName :<span>${firstName}</span></p>
+                <p>MiddleName :<span>${middleName}</span></p>
+                <p>LastName :<span>${lastName}</span></p>
+                <p>Email :<span>${email}</span></p>
+                <p>Contact :<span>${contact}</span></p>
+                <p>DOB :<span>${dob}</span></p>
+                <p>PIN CODE :<span>${pinCode}</span></p>
+                <p>Class :<span>${className}</span></p>
+                <p>Address :<span>${address}</span></p>
+    `
+    formDetail.innerHTML = html;
+
+}
+closeIcon.addEventListener('click', () =>{
+    popupcontainer.style.display = 'none'
+    formcontainer.style.display = "flex"
+})
