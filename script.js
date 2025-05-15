@@ -39,7 +39,7 @@ const formValidation = () => {
     addressError.textContent = '';
     classError.textContent = '';
     
-    /*if (firstName === '') {
+    if (firstName === '') {
         firstNameError.innerHTML = 'First name is required';
        
     } else if (firstName.length < 5) {
@@ -93,7 +93,7 @@ const formValidation = () => {
         classError.textContent = 'Class is required';
     } else if (className.length < 2) {
         classError.textContent = 'Class must be at least 2 characters';
-    }  */
+    } 
 
     if (firstNameError.textContent === '' && lastNameError.textContent === '' && middleNameError.textContent === '' && emailError.textContent === '' && contactError.textContent === '' && pinCodeError.textContent === '' && addressError.textContent === '') {
         loader.style.display = 'block';         
