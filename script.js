@@ -1,13 +1,4 @@
 const form = document.getElementById('form');
-const firstNameError = document.getElementById('firstnameError');
-const middleNameError = document.getElementById('middlenameError');
-const lastNameError = document.getElementById('lastnameError');
-const emailError = document.getElementById('emailError');
-const contactError = document.getElementById('contactError');
-const pinCodeError = document.getElementById('pinError');
-const classError = document.getElementById('classError');
-const addressError = document.getElementById('addressError');
-const dobError = document.getElementById('dobError');
 const loader = document.querySelector('.loader');
 const formcontainer =document.querySelector('.container')
 const popupcontainer =document.querySelector('.popup-container')
@@ -15,91 +6,106 @@ const closeIcon = document.querySelector('.icon')
 const formDetail = document.querySelector('.form-detail')
 
 // Form Data And Value Acsess ///
-
-
-
+//Errors Feild 
+const errors = {
+    firstName: document.getElementById('firstnameError'),
+    middleName: document.getElementById('middlenameError'),
+    lastName: document.getElementById('lastnameError'),
+    email: document.getElementById('emailError'),
+    contact: document.getElementById('contactError'),
+    dob: document.getElementById('dobError'),
+    pinCode: document.getElementById('pinError'),
+    className: document.getElementById('classError'),
+    address: document.getElementById('addressError')
+};
+// set Error fuction 
+const setError = (feild, message) =>{
+    errors[feild].textContent = message;
+}
+// ClearError function
+const ClearError =() =>{
+    Object.keys(errors).forEach(field => errors[field].textContent= '')
+}
 const formValidation = () => {
-    const firstName = document.getElementById('first-name').value
-    const middleName = document.getElementById('middle-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value;  
-    const contact = document.getElementById('contact').value;
-    const dob = document.getElementById('dob').value;
-    const pinCode = document.getElementById('pin').value;
-    const className = document.getElementById('class').value;
-    const address = document.getElementById('address').value;
+    ClearError();
+
+     const field = {
+        firstName: document.getElementById('first-name').value.trim(),
+        middleName: document.getElementById('middle-name').value.trim(),
+        lastName: document.getElementById('last-name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        contact: document.getElementById('contact').value.trim(),
+        dob: document.getElementById('dob').value.trim(),
+        pinCode: document.getElementById('pin').value.trim(),
+        className: document.getElementById('class').value.trim(),
+        address: document.getElementById('address').value.trim()
+    };
+
    
-    firstNameError.textContent = '';
-    lastNameError.textContent = '';
-    middleNameError.textContent = '';
-    emailError.textContent = '';
-    contactError.textContent = '';
-    dobError.textContent = '';
-    pinCodeError.textContent = '';
-    addressError.textContent = '';
-    classError.textContent = '';
+
     
-    if (firstName === '') {
-        firstNameError.innerHTML = 'First name is required';
+    if (field.firstName === '') {
+        setError('firstName','First name Requierd')
        
-    } else if (firstName.length < 5) {
-        firstNameError.textContent = 'First name must be at least 5 characters';
+    } else if (field.firstName.length < 5) {
+        setError('firstName',"First name must be at least 5 characters")
     }
 
-    if (middleName === '') {
-        middleNameError.textContent = 'middle name is required';
-    } else if (middleNameError.length < 5) {
-        middleNameError.textContent = 'middle name must be at least 5 characters';
+    if (field.middleName === '') {
+        setError('middleName',"middle name is required")
+    } else if (field.middleName.length < 5) {
+        setError('middleName','middle name must be at least 5 characters')
     }
 
-    if (lastName === '') {
-        lastNameError.textContent = 'Last name is required';
-    } else if (lastName.length < 5) {
-        lastNameError.textContent = 'Last name must be at least 5 characters';
+    if (field.lastName === '') {
+        setError('lastName','last name is requierd')
+    } else if (field.lastName.length < 5) {
+        setError('lastName' ,'Last name must be at least 5 characters')
     }
 
-    if (email === '') {
-        emailError.textContent = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-        emailError.textContent = 'Email is invalid';
+    if (field.email === '') {
+        setError('email','Email is required');
+    } else if (!/\S+@\S+\.\S+/.test(field.email)) {
+        setError('email','Email is invalid');
     }
-    if (contact === '') {
-        contactError.textContent = 'Contact number is required';
-    } else if (!/^\d{10}$/.test(contact)) {
-        contactError.textContent = 'Contact number must be 10 digits';
+    if (field.contact === '') {
+        setError('contact' ,'Contact number is required')
+    } else if (!/^\d{10}$/.test(field.contact)) {
+        setError('contact','Contact number must be 10 digits')
     }
-    if (dob === '') {
-        dobError.textContent = 'Date of birth is required';
+    if (field.dob === '') {
+        setError('dob','Date of birth is required')
     } else {
         const today = new Date();
-        const dobDate = new Date(dob);
+        const dobDate = new Date(field.dob);
         const age = today.getFullYear() - dobDate.getFullYear();
         const monthDiff = today.getMonth() - dobDate.getMonth();
         if (age < 18) {
-            dobError.textContent = 'You must be at least 18 years old';
+            setError('dob','You must be at least 18 years old')
         }
     }
-    if (pinCode === '') {
-        pinCodeError.textContent = 'Pin code is required';
-    } else if (!/^\d{6}$/.test(pinCode)) {
-        pinCodeError.textContent = 'Pin code must be 6 digits';
+    if (field.pinCode === '') {
+        setError('pinCode','Pin code is required')
+    } else if (!/^\d{6}$/.test(field.pinCode)) {
+        setError('pinCode','Pn code must be 6 digits')
     }
-    if (address === '') {
-        addressError.textContent = 'Address is required';
-    } else if (address.length < 10) {
-        addressError.textContent = 'Address must be at least 10 characters';
+    if (field.address === '') {
+        setError('address','Address is required')
+
+    } else if (field.address.length < 10) {
+        setError('address','Address must be at least 10 Characters')
     }
-    if (className === '') {
-        classError.textContent = 'Class is required';
-    } else if (className.length < 2) {
-        classError.textContent = 'Class must be at least 2 characters';
+    if (field.className === '') {
+        setError('className','class is Requierd')
+    } else if (field.className.length < 2) {
+        setError('className','class must be at least 2 character')
     } 
 
-    if (firstNameError.textContent === '' && lastNameError.textContent === '' && middleNameError.textContent === '' && emailError.textContent === '' && contactError.textContent === '' && pinCodeError.textContent === '' && addressError.textContent === '') {
+    if (!Object.values(errors).some(err => err.textContent !== '')) {
         loader.style.display = 'block';         
         setTimeout(() => {
             loader.style.display = 'none';
-            showPopup()
+            showPopup(field)
             form.reset();
         }, 2000);
         
@@ -115,29 +121,10 @@ form.addEventListener('submit' , (e) =>{
    
 })
 
-const showPopup = () => {
+const showPopup = (field) => {
     formcontainer.style.display = "none"
     popupcontainer.style.display = 'block'
-    const firstName = document.getElementById('first-name').value
-    const middleName = document.getElementById('middle-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value;  
-    const contact = document.getElementById('contact').value;
-    const dob = document.getElementById('dob').value;
-    const pinCode = document.getElementById('pin').value;
-    const className = document.getElementById('class').value;
-    const address = document.getElementById('address').value;
-    const html = `
-                 <p>FirstName :<span>${firstName}</span></p>
-                <p>MiddleName :<span>${middleName}</span></p>
-                <p>LastName :<span>${lastName}</span></p>
-                <p>Email :<span>${email}</span></p>
-                <p>Contact :<span>${contact}</span></p>
-                <p>DOB :<span>${dob}</span></p>
-                <p>PIN CODE :<span>${pinCode}</span></p>
-                <p>Class :<span>${className}</span></p>
-                <p>Address :<span>${address}</span></p>
-    `
+    const html = Object.entries(field).map(([key, value]) => `<p>${key.charAt(0).toUpperCase() + key.slice(1)}: <span>${value}</span></p>`).join('');
     formDetail.innerHTML = html;
 
 }
