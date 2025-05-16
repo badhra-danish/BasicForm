@@ -51,16 +51,17 @@ form .heading p{
     
     margin-bottom: 1rem;
 }
+
 .form-items .form-input label{
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: rgb(87, 87, 241);
     transform: translateY(-50%);
     font-weight: 600;
 }
 
 .form-items .form-input input{
-    padding: 1rem;
-    font-size: 1.2rem;
+    padding: 0.8rem;
+    font-size: 1rem;
     background-color:rgb(230, 230, 248) ;
     outline: none;
    border: none;
@@ -68,10 +69,18 @@ form .heading p{
     width: 100%;
     cursor: pointer;
 }
+.form-items .form-input input::placeholder{
+    opacity: 30%;
+    letter-spacing: 1px;
+}
+.form-group textarea::placeholder{
+    opacity: 30%;
+    letter-spacing: 1px;
+}
 .form-group textarea{
     width: 100%;
-    font-size: 1.2rem;
-    padding: 1rem;
+    font-size: 1rem;
+    padding: 0.8rem;
     margin-top: 1rem;
     resize: none;
     background-color:rgb(230, 230, 248) ;
@@ -80,7 +89,7 @@ form .heading p{
     border-radius: 5px;
 }
 .form-group label{
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: rgb(87, 87, 241);
     font-weight: 600    ;
 }
@@ -92,10 +101,11 @@ form .heading p{
     justify-content: center;
     gap: 2rem;
 }
+
 .submit-btns input{
     width: 30%;
     padding: 0.6rem; 
-    font-weight:400;
+    font-weight:600;
     font-size: 1.2rem;
     color: #fff;
     background-color:rgb(87, 87, 241);

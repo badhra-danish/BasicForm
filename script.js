@@ -4,7 +4,17 @@ const formcontainer =document.querySelector('.container')
 const popupcontainer =document.querySelector('.popup-container')
 const closeIcon = document.querySelector('.icon')
 const formDetail = document.querySelector('.form-detail')
+const input = document.querySelector('#text')
+const btn = document.querySelector('#btn')
 
+/*const textTospeech = () =>{
+    let text = input.value;
+    const voice = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(voice);
+    console.log(text);
+    
+}
+btn.addEventListener('click' , textTospeech)*/
 // Form Data And Value Acsess ///
 //Errors Feild 
 const errors = {
